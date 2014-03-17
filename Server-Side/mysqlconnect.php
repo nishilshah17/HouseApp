@@ -1,8 +1,6 @@
 <?php
 //mysql login information
 
-include 'mysqlconnect.php';
-
 $dbhost = 'localhost';
 $dbuser = 'clubbed_houseapp';
 $dbpass = 'houseapp2014';
