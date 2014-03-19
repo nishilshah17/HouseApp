@@ -1,6 +1,7 @@
 <?php
 
 include 'mysqlconnect.php';
+require 'password.php';
 
 $rand = FALSE;
 $firstname = $_POST['sufirstname'];
