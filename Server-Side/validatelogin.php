@@ -2,15 +2,18 @@
 
 include 'mysqlconnect.php';
 require 'password.php';
+include 'getdata.php';
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = $json->{'email'};
+$password = $json->{'password'};
 
+/*
 $result = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
-
+$row = mysql_fetch_assoc($result);
+    
 if(mysql_num_rows($result)==0)
 {
-    $message = "Invalid Email";
+    $message = "false";
 } else {
     $row = mysql_fetch_assoc($result);
     $userpassword = $row['hash'];
@@ -18,11 +21,16 @@ if(mysql_num_rows($result)==0)
     $matched = password_verify($userpassword, $hash);
     
     if($matched == true){
-        $message = "true";
+        $message = $row['userID'];
     } else {
-        $message = "Invalid Password";
+        $message = "false";
     }
 }
 
-echo json_encode(array("result" => $message));
+$fullname = $row['firstName']." ".$row['lastName];*/
+
+$fullname = "test name";
+
+echo json_encode(array('userID' => $email, 'fullname' => $fullname));
+
 ?>
