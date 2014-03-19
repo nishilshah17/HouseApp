@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/suusernameView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false" android:layout_marginLeft="50dp" android:layout_marginTop="50dp"
+            android:text="@string/Username" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/suUsername" android:layout_below="@+id/suusernameView"
+            android:layout_alignLeft="@+id/suusernameView" android:layout_alignStart="@+id/suusernameView"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Email"
+            android:id="@+id/textView" android:layout_below="@+id/suUsername" android:layout_alignLeft="@+id/suUsername"
+            android:layout_alignStart="@+id/suEmailView" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/suEmail" android:layout_below="@+id/textView" android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView" android:layout_alignRight="@+id/suUsername"
+            android:layout_alignEnd="@+id/suUsername"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/FirstName"
+            android:id="@+id/suFNameView" android:layout_below="@+id/suEmail" android:layout_alignLeft="@+id/suEmail"
+            android:layout_alignStart="@+id/suEmail" android:textIsSelectable="false" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/suFName" android:layout_below="@+id/suFNameView"
+            android:layout_alignLeft="@+id/suFNameView" android:layout_alignStart="@+id/suFNameView"
+            android:layout_alignRight="@+id/suEmail" android:layout_alignEnd="@+id/suEmail"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LastName"
+            android:id="@+id/suLNameView" android:layout_below="@+id/suFName" android:layout_alignLeft="@+id/suFName"
+            android:layout_alignStart="@+id/suFName" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/suLName" android:layout_below="@+id/suLNameView"
+            android:layout_alignLeft="@+id/suLNameView" android:layout_alignStart="@+id/suLNameView"
+            android:layout_alignRight="@+id/suFName" android:layout_alignEnd="@+id/suFName"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Password"
+            android:id="@+id/suPasswordView" android:layout_below="@+id/suLName" android:layout_alignLeft="@+id/suLName"
+            android:layout_alignStart="@+id/suLName" android:textSize="30sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/suPassword" android:layout_below="@+id/suPasswordView"
+            android:layout_alignLeft="@+id/suPasswordView" android:layout_alignStart="@+id/suPasswordView"
+            android:layout_alignRight="@+id/suLName" android:layout_alignEnd="@+id/suLName"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SignUp"
+            android:id="@+id/suRegister" android:layout_below="@+id/suPassword" android:layout_alignLeft="@+id/suPassword"
+            android:layout_alignStart="@+id/suPassword" android:textSize="30sp"/>
+</RelativeLayout>
