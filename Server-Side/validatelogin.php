@@ -7,7 +7,6 @@ include 'getdata.php';
 $email = $json->{'email'};
 $password = $json->{'password'};
 
-/*
 $result = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
 $row = mysql_fetch_assoc($result);
     
@@ -27,10 +26,9 @@ if(mysql_num_rows($result)==0)
     }
 }
 
-$fullname = $row['firstName']." ".$row['lastName];*/
+$fullname = $row['firstName']." ".$row['lastName'];
 
-$fullname = "test name";
+//echo json_encode(array('userID' => $email, 'fullname' => $fullname));
 
-echo json_encode(array('userID' => $email, 'fullname' => $fullname));
-
+echo $message;
 ?>
