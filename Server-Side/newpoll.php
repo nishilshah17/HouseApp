@@ -1,7 +1,10 @@
 <?php
 
 include 'mysqlconnect.php';
+include 'getdata.php';
 
-$data = file_get_contents('php://input');
-$json = json_decode($data);
+$question = $json->{'pollquestion'};
+$userID = $json->{'userID'};
+
+mysql_query('INSERT INTO polls (question, userID) VALUES ("'.$question.'", "'.$userID.'")');
 ?>

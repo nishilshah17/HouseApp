@@ -1,7 +1,6 @@
 <?php
 
 include 'mysqlconnect.php';
+include 'getdata.php';
 
-$data = file_get_contents('php://input');
-$json = json_decode($data);
 ?>

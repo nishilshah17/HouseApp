@@ -11,6 +11,7 @@ $password = $json->{'supassword'};
 $firstname = $json->{'sufirstname'};
 $lastname = $json->{'sufirstname'};
 $username = $json->{'suusername'};
+$type = $json->{'sutype'};
 
 $rand = FALSE;
 
@@ -30,7 +31,7 @@ $resultemail = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
 if(mysql_num_rows($resultemail) > 0){
     $userID = "Email Already In Use";
 } else {
-    mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'")');
+    mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username, type) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'", "'.$type.'")');
 }
 echo json_encode(array('userID' => $userID));
 

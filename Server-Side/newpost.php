@@ -1,8 +1,11 @@
 <?php
 
 include 'mysqlconnect.php';
+include 'getdata.php';
 
-$data = file_get_contents('php://input');
-$json = json_decode($data);
+$post = $json->{'post'};
+$userID = $json->{'userID'};
+$approved = 0;
 
+mysql_query('INSERT INTO posts (post, userID, approved) VALUES ("'.$post.'", "'.$userID.'","'.$approved.'")');
 ?>
