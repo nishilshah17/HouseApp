@@ -18,7 +18,7 @@ if(mysql_num_rows($result)==0)
     $matched = password_verify($password, $row['hash']);
     
     if($matched == true){
-        $message = $row['userID'];
+        $message = strval($row['userID']);
     } else {
         $message = "false";
     }
@@ -26,7 +26,7 @@ if(mysql_num_rows($result)==0)
 
 $fullname = $row['firstName']." ".$row['lastName'];
 
-//echo json_encode(array('userID' => $email, 'fullname' => $fullname));
+//echo json_encode(array('userID' => $message, 'fullname' => $fullname));
 
 echo $message;
 ?>

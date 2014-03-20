@@ -4,23 +4,13 @@ include 'mysqlconnect.php';
 require 'password.php';
 include 'getdata.php';
 
-//$firstname = $_POST['sufirstname'];
-//$email = $_POST['sulastname'];
-//$password = $_POST['supassword'];
-
-/*$data = file_get_contents('php://input');
+$data = file_get_contents('php://input');
 $json = json_decode($data);
 $email = $json->{'suemail'};
 $password = $json->{'supassword'};
 $firstname = $json->{'sufirstname'};
 $lastname = $json->{'sufirstname'};
-$username = $json->{'suusername'};*/
-
-$email = "test@gmail.com";
-$password = "testpassword";
-$firstname = "firstname";
-$lastname = "lastname";
-$username = "username";
+$username = $json->{'suusername'};
 
 $rand = FALSE;
 
