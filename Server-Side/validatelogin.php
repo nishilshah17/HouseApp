@@ -18,7 +18,11 @@ if(mysql_num_rows($result)==0)
     $matched = password_verify($password, $row['hash']);
     
     if($matched == true){
-        $message = strval($row['userID']);
+        if($row['confirmed'] == 0){
+            $message = "unconfirmed";
+        } else {
+            $message = strval($row['userID']);
+        }
     } else {
         $message = "false";
     }
