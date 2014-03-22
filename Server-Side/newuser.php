@@ -34,37 +34,40 @@ while (!$rand)
 
 $resultemail = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
 if(mysql_num_rows($resultemail) > 0){
-    $userID = "Email Already In Use";
+    $register = "false";
 } else {
     mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username, type, confirmed) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'", "'.$type.'", "'.$confirmed.'")');
+    $register = "true";
 }
-echo json_encode(array('userID' => $userID));
+echo json_encode(array('register' => $register));
 
 $secure = rand(100,999).base64_encode($userID);
 
 
 //SEND CONFIRMATION EMAIL
-
-$mail = new PHPMailer;
- 
-$mail->isSMTP();           
-$mail->Host = 'smtp.gmail.com';          
-$mail->SMTPAuth = true;                
-$mail->Username = 'mygovapp@gmail.com';          
-$mail->Password = 'mygov2014';          
-$mail->SMTPSecure = 'tls';                  
-$mail->Port = 587;                              
-$mail->setFrom('mygovapp@gmail.com', 'myGov');  
-$mail->addReplyTo('mygovapp@gmail.com', 'myGov');
-$mail->addAddress($email, $firstname." ".$lastname);
-$mail->WordWrap = 50;                              
-$mail->isHTML(true);                                 
- 
-$mail->Subject = $firstname.', Confirm your email address';
-$mail->Body    = 'Dear '.$firstname.' '.$lastname.', <br> <br>You recently joined myGov. Click <a href="http://www.clubbedinapp.com/houseapp/php/confirmemail.php?id='.$secure.'">here</a> to confirm your email address and start using the application! <br><br> From, <br> The myGov Team';
- 
-if(!$mail->send()) {
-   exit;
+if($register != "false"){
+    
+    $mail = new PHPMailer;
+     
+    $mail->isSMTP();           
+    $mail->Host = 'smtp.gmail.com';          
+    $mail->SMTPAuth = true;                
+    $mail->Username = 'mygovapp@gmail.com';          
+    $mail->Password = 'mygov2014';          
+    $mail->SMTPSecure = 'tls';                  
+    $mail->Port = 587;                              
+    $mail->setFrom('mygovapp@gmail.com', 'myGov');  
+    $mail->addReplyTo('mygovapp@gmail.com', 'myGov');
+    $mail->addAddress($email, $firstname." ".$lastname);
+    $mail->WordWrap = 50;                              
+    $mail->isHTML(true);                                 
+     
+    $mail->Subject = $firstname.', Confirm your email address';
+    $mail->Body    = 'Dear '.$firstname.' '.$lastname.', <br> <br>You recently joined myGov. Click <a href="http://www.clubbedinapp.com/houseapp/php/confirmemail.php?id='.$secure.'">here</a> to confirm your email address and start using the application! <br><br> From, <br> The myGov Team';
+     
+    if(!$mail->send()) {
+       exit;
+    }
 }
 
 
