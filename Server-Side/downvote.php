@@ -16,8 +16,8 @@ if(mysql_num_rows($result) == 0)
     if($currentvote == 1){
         mysql_query('UPDATE uservote SET vote = "'.$vote.'" WHERE userID = "'.$userID.'" AND postID = "'.$postID.'"');
         mysql_query('UPDATE posts SET vote = vote + 1 WHERE postID = "'.$postID.'"');
+    } else {
     }
-    mysql_query('UPDATE uservote SET vote = "'.$vote.'" WHERE userID = "'.$userID.'" AND postID = "'.$postID.'"');
 }
 
 ?>
