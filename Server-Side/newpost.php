@@ -7,7 +7,7 @@ $post = $json->{'post'};
 $userID = $json->{'userID'};
 
 $result = mysql_query('SELECT * FROM users WHERE userID = "'.$userID.'"');
-$type = $result['type'];
+$type = $row['type'];
 
 if($type==0){
     $approved = 0;
