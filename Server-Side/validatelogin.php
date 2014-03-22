@@ -30,7 +30,6 @@ if(mysql_num_rows($result)==0)
 
 $fullname = $row['firstName']." ".$row['lastName'];
 
-//echo json_encode(array('userID' => $message, 'fullname' => $fullname));
+echo json_encode(array('userID' => $message));
 
-echo $message;
 ?>
