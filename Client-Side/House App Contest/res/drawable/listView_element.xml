@@ -5,16 +5,14 @@
         android:left="7dp"
         android:top="15dp"
         android:right="7dp"
-        android:bottom="15dp" />
+        android:bottom="30dp" />
     <gradient
-        android:startColor="#0266c9"
-        android:centerColor="#ff0286ff"
-        android:endColor="#0266c9"
-        android:type="radial"
-        android:gradientRadius="3dp"
+        android:startColor="#ffdb2121"
+        android:endColor="#fff22525"
+        android:type="linear"
         android:angle="90"/>
     <stroke
-        android:width="4dip"
-        android:color="#ff0266c9" />
+        android:width="3dip"
+        android:color="#4898E8" />
     <corners android:radius="8dp" />
 </shape>

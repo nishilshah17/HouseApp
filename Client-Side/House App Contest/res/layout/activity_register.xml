@@ -3,18 +3,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-    android:longClickable="true">
+    android:longClickable="true"
+    android:background="@drawable/bg_grad">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/usalogo"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="105dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -23,7 +24,7 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:textColor="#0266C9"
+        android:textColor="#ad1818"
         android:textSize="36dp"
         android:textIsSelectable="true" />
 
@@ -84,13 +85,11 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/button"
-        android:layout_marginTop="55dp"
         android:background="@drawable/btn_normal"
-        android:layout_below="@+id/suPassword"
-        android:layout_alignRight="@+id/suPassword"
-        android:layout_alignEnd="@+id/suPassword"
+        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/suPassword"
-        android:layout_alignStart="@+id/suPassword" />
+        android:layout_alignStart="@+id/suPassword"
+        android:layout_marginBottom="83dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -104,5 +103,13 @@
         android:layout_below="@+id/suLName"
         android:layout_alignLeft="@+id/suLName"
         android:layout_alignStart="@+id/suLName" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/suPassword"
+        android:layout_centerHorizontal="true"
+        android:isScrollContainer="false" />
 
 </RelativeLayout>

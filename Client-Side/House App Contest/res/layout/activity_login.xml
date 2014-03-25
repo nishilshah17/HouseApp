@@ -2,7 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_grad">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/usalogo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="MyGov Logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MyGov"
+        android:id="@+id/myGovTitle"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:textSize="36dp"
+        android:textColor="#02669C"
+        android:textStyle="bold|normal" />
 
     <Button
         android:id="@+id/register"
@@ -10,20 +34,10 @@
         android:layout_height="50dp"
         android:text="@string/Register"
         android:background="@drawable/btn_normal"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="29dp"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/signin"
         android:layout_alignStart="@+id/signin" />
-
-    <TextView
-        android:id="@+id/emailView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Email"
-        android:textSize="20sp" android:focusableInTouchMode="true"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/emailText"
-        android:layout_alignStart="@+id/emailText" />
 
     <EditText
         android:id="@+id/emailText"
@@ -31,20 +45,11 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_above="@+id/passwordView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp" />
-
-    <TextView
-        android:id="@+id/passwordView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Password"
-        android:textSize="20sp"
-        android:layout_above="@+id/passwordText"
-        android:layout_alignLeft="@+id/emailText"
-        android:layout_alignStart="@+id/emailText"
-        android:layout_marginBottom="25dp" />
+        android:layout_marginBottom="29dp"
+        android:text="Email"
+        android:textSize="24dp"
+        android:layout_above="@+id/passwordText" />
 
     <EditText
         android:id="@+id/passwordText"
@@ -53,9 +58,10 @@
         android:ems="10"
         android:inputType="textPassword"
         android:layout_above="@+id/signin"
-        android:layout_alignLeft="@+id/passwordView"
-        android:layout_alignStart="@+id/passwordView"
-        android:layout_marginBottom="70dp" />
+        android:layout_marginBottom="70dp"
+        android:layout_alignLeft="@+id/emailText"
+        android:text="Password"
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/signin"
@@ -72,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/signin"
         android:layout_centerHorizontal="true" />
     <TextView
@@ -81,9 +87,10 @@
         android:id="@+id/invalidView"
             android:focusableInTouchMode="true"
         android:text="@string/IncorrectAccount" android:textColor="#db2121" android:textSize="15sp"
+        android:layout_marginBottom="27dp"
         android:layout_above="@+id/signin"
-        android:layout_toRightOf="@+id/emailView"
-        android:layout_marginBottom="25dp" />
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,30 +98,16 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Don't have an account?"
         android:id="@+id/textView"
-        android:layout_marginTop="75dp"
         android:textColor="#db2121"
         android:layout_below="@+id/spinner"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/usalogo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="MyGov"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/signin"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textColor="#0266C9"
-        android:textSize="36dp"
-        android:textIsSelectable="true" />
+        android:isScrollContainer="false" />
 
 </RelativeLayout>
