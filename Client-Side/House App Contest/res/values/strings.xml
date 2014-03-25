@@ -13,7 +13,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="title_activity_login">My Gov</string>
-    <string name="Register">Don\'t have an account? Register here.</string>
+    <string name="Register">Sign Up</string>
     <string name="Email">Email</string>
     <string name="Password">Password</string>
     <string name="IncorrectAccount">Email or Password Incorrect</string>

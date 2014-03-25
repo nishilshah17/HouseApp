@@ -2,79 +2,119 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/register"
-        android:layout_width="500dp"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:text="@string/Register" />
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="@string/Register"
+        android:background="@drawable/btn_normal"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/signin"
+        android:layout_alignStart="@+id/signin" />
 
     <TextView
         android:id="@+id/emailView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/register"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="100dp"
         android:text="@string/Email"
-        android:textSize="20sp" android:focusableInTouchMode="true"/>
+        android:textSize="20sp" android:focusableInTouchMode="true"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/emailText"
+        android:layout_alignStart="@+id/emailText" />
 
     <EditText
         android:id="@+id/emailText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_above="@+id/passwordView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp" />
 
     <TextView
         android:id="@+id/passwordView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/emailText"
-        android:layout_below="@+id/emailText"
-        android:layout_marginTop="25dp"
         android:text="@string/Password"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_above="@+id/passwordText"
+        android:layout_alignLeft="@+id/emailText"
+        android:layout_alignStart="@+id/emailText"
+        android:layout_marginBottom="25dp" />
 
     <EditText
         android:id="@+id/passwordText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/passwordView"
-        android:layout_below="@+id/passwordView"
-        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_above="@+id/signin"
+        android:layout_alignLeft="@+id/passwordView"
+        android:layout_alignStart="@+id/passwordView"
+        android:layout_marginBottom="70dp" />
 
     <Button
         android:id="@+id/signin"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/action_sign_in_short" />
+        android:text="@string/action_sign_in_short"
+        android:textStyle="bold|normal"
+        android:background="@drawable/btn_normal"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/passwordText"
+        android:layout_alignStart="@+id/passwordText" />
+
     <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_alignTop="@+id/signin" android:layout_toRightOf="@+id/signin"/>
+        android:layout_marginTop="92dp"
+        android:layout_below="@+id/signin"
+        android:layout_centerHorizontal="true" />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/invalidView"
+        android:id="@+id/invalidView"
             android:focusableInTouchMode="true"
-            android:layout_alignParentTop="true" android:layout_alignLeft="@+id/emailView"
-            android:layout_alignStart="@+id/emailView" android:layout_marginTop="40dp"
-            android:text="@string/IncorrectAccount" android:textColor="#f05840" android:textSize="15sp"
-            android:layout_alignParentEnd="false"/>
+        android:text="@string/IncorrectAccount" android:textColor="#db2121" android:textSize="15sp"
+        android:layout_above="@+id/signin"
+        android:layout_toRightOf="@+id/emailView"
+        android:layout_marginBottom="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Don't have an account?"
+        android:id="@+id/textView"
+        android:layout_marginTop="75dp"
+        android:textColor="#db2121"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/usalogo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MyGov"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="#0266C9"
+        android:textSize="36dp"
+        android:textIsSelectable="true" />
 
 </RelativeLayout>
