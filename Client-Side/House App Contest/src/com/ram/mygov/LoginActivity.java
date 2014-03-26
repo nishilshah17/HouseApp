@@ -10,10 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.WindowManager;
+import android.widget.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -24,13 +22,11 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class LoginActivity extends Activity {
 
+    // UI Elements
     private TextView invalidView;
 	private EditText mEmailView;
 	private EditText mPasswordView;
@@ -38,19 +34,22 @@ public class LoginActivity extends Activity {
     private ProgressBar progressBar;
 	private Button registerButton;
 
+    // Login Details
     private String mEmail;
     private String mPassword;
 
+    // Account Information
     private String userID;
 
+    // Internet Connection
     private UserLoginTask loginTask;
-
-    private String[] data;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 		initLoginUI();
 		
 	}
@@ -58,8 +57,8 @@ public class LoginActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
+		getMenuInflater().inflate(R.menu.main_activity_actions, menu);
+		return false;
 	}
 
 	public void initLoginUI() {
@@ -70,13 +69,14 @@ public class LoginActivity extends Activity {
         invalidView.setVisibility(View.INVISIBLE);
 
 		mEmailView = (EditText) findViewById(R.id.emailText);
-		mEmailView.setTextColor(Color.BLACK);
+        mEmailView.setHint("Email");
+        mEmailView.setHintTextColor(Color.argb(100,190,230,255));
 
 		mPasswordView = (EditText) findViewById(R.id.passwordText);
-		mPasswordView.setTextColor(Color.BLACK);
+        mPasswordView.setHint("Password");
+        mPasswordView.setHintTextColor(Color.argb(100,190,230,255));
 		
 		signInButton = (Button) findViewById(R.id.signin);
-		signInButton.setBackgroundColor(Color.rgb(0, 255, 210));
 		
 		signInButton.setOnClickListener(new OnClickListener() {
 			
@@ -89,41 +89,32 @@ public class LoginActivity extends Activity {
 		);
 		
 		registerButton = (Button) findViewById(R.id.register);
-		registerButton.setBackgroundColor(Color.rgb(0, 255, 210));
 		
 		registerButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				setContentView(R.layout.activity_register);
+
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                LoginActivity.this.startActivity(intent);
+
 			}
 		
 		}
 		);
 
-        progressBar = (ProgressBar) findViewById(R.id.spinner);
+        progressBar = (ProgressBar) findViewById(R.id.signinBar);
         progressBar.setVisibility(View.INVISIBLE);
-		
+
 	}
-
-    public void resetLoginUI() {
-
-        invalidView.setVisibility(View.VISIBLE);
-
-        progressBar.setVisibility(View.INVISIBLE);
-
-        mPasswordView.setText("");
-        mPasswordView.requestFocus();
-
-    }
 
 	public void attemptLogin() {
 
 		mEmailView.setError(null);
 		mPasswordView.setError(null);
 
-		String email = mEmailView.getText().toString();
-		String password = mPasswordView.getText().toString();
+		String email = "ramsai.vellanki@gmail.com";//mEmailView.getText().toString();
+		String password = "aaaaaa";//mPasswordView.getText().toString();
 
 		boolean cancel = false;
 		View focusView = null;
@@ -161,6 +152,27 @@ public class LoginActivity extends Activity {
             progressBar.setVisibility(View.INVISIBLE);
 
 	}
+
+    public void showIncorrectAccountMessage() {
+
+        invalidView.setVisibility(View.VISIBLE);
+        invalidView.setText(R.string.IncorrectAccount);
+
+        progressBar.setVisibility(View.INVISIBLE);
+
+        mPasswordView.setText("");
+        mPasswordView.requestFocus();
+
+    }
+
+    public void showUnconfirmedAccountMessage() {
+
+        invalidView.setVisibility(View.VISIBLE);
+        invalidView.setText("Please confirm your email before you log in");
+
+        progressBar.setVisibility(View.INVISIBLE);
+
+    }
 	
 	private void authenticate(String email, String password) {
 		
@@ -196,9 +208,8 @@ public class LoginActivity extends Activity {
 
                 if (response != null) {
                     InputStream in = response.getEntity().getContent();
-                    data = convertStreamToString(in);
-                    Log.i("Read",userID);
-                    if (!userID.equals("false"))
+                    userID = JSONParser.convertStreamToString(in,PHPScriptVariables.userIDString);
+                    if (!userID.equals(PHPScriptVariables.CONNECTION_FAILED) && !userID.equals(PHPScriptVariables.CONECTION_UNCONFIRMED))
                         return true;
                 }
             } catch (Exception e) {
@@ -218,13 +229,16 @@ public class LoginActivity extends Activity {
             if (success)
             {
 
-                setContentView(R.layout.activity_welcome);
+                Intent intent = new Intent(LoginActivity.this,MyGovActivity.class);
+                intent.putExtra(PHPScriptVariables.userIDString,userID);
+                LoginActivity.this.startActivity(intent);
 
-                //Intent myIntent = new Intent(LoginActivity.this,CalculatorActivity.class);
-                //LoginActivity.this.startActivity(myIntent);
             } else
             {
-                resetLoginUI();
+                if (userID.equals(PHPScriptVariables.CONECTION_UNCONFIRMED))
+                    showUnconfirmedAccountMessage();
+                else if (userID.equals(PHPScriptVariables.CONNECTION_FAILED))
+                    showIncorrectAccountMessage();
             }
         }
 
@@ -234,43 +248,6 @@ public class LoginActivity extends Activity {
             loginTask = null;
             showProgress(false);
         }
-
-    }
-
-    private static String[] convertStreamToString(InputStream is) {
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        String s = sb.toString();
-
-        int count = 0;
-
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == ',')
-                count++;
-        }
-
-        String[] data = new String[count];
-
-
-
-        return data;
 
     }
 
