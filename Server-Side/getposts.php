@@ -11,7 +11,7 @@ $posts = array();
 
 while ($row = mysql_fetch_assoc($result)) {
 
-	array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "postType" => $row['approved'], "stamp" => $row['stamp']));
+	array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "postType" => $row['approved'], "stamp" => $row['stamp'], "up" => $row['upvotes'], "down" => $row['downvotes']));
 
 }
 
