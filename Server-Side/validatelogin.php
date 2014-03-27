@@ -9,6 +9,7 @@ $password = $json->{'password'};
 
 $result = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
 $row = mysql_fetch_assoc($result);
+$type = "2";
 
 if(mysql_num_rows($result)==0)
 {
@@ -22,14 +23,12 @@ if(mysql_num_rows($result)==0)
             $message = "unconfirmed";
         } else {
             $message = strval($row['userID']);
+            $type = strval($row['type']);
         }
     } else {
         $message = "false";
     }
 }
-
-$fullname = $row['firstName']." ".$row['lastName'];
-$type = $row['type'];
 
 echo json_encode(array('userID' => $message, 'type' => $type));
 
