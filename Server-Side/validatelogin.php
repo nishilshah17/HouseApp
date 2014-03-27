@@ -29,7 +29,8 @@ if(mysql_num_rows($result)==0)
 }
 
 $fullname = $row['firstName']." ".$row['lastName'];
+$type = $row['type'];
 
-echo json_encode(array('userID' => $message));
+echo json_encode(array('userID' => $message, 'type' => $type));
 
 ?>
