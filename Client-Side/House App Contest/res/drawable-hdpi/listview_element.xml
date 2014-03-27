@@ -7,10 +7,11 @@
             android:right="7dp"
             android:bottom="30dp" />
     <gradient
-            android:startColor="#4898E8"
-            android:endColor="#4898E8"
+            android:startColor="#ff0266c9"
+            android:centerColor="#ff0286ff"
+            android:endColor="#ff0266c9"
             android:type="linear"
-            android:angle="90"/>
+            android:angle="45"/>
     <stroke
             android:width="3dip"
             android:color="#ff0266c9" />

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="appcompat_v7">
-    <CLASSES>
-      <root url="jar://$APPLICATION_HOME_DIR$/sdk/extras/android/support/v7/appcompat_v7/bin/appcompat_v7.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
