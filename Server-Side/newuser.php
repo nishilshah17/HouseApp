@@ -74,6 +74,4 @@ if($register != "false"){
     }
 }
 
-
-
 ?>
