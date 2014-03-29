@@ -33,8 +33,12 @@ while (!$rand)
 }
 
 $resultemail = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
+$resultusername = mysql_query('SELECT * FROM users WHERE username = "'.$username.'"');
+
 if(mysql_num_rows($resultemail) > 0){
     $register = "false";
+} else if (mysql_num_rows($resultusername) > 0{
+    $register = "false2";
 } else {
     mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username, type, confirmed) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'", "'.$type.'", "'.$confirmed.'")');
     $register = "true";
@@ -63,7 +67,7 @@ if($register != "false"){
     $mail->isHTML(true);                                 
      
     $mail->Subject = $firstname.', Confirm your email address';
-    $mail->Body    = 'Dear '.$firstname.' '.$lastname.', <br> <br>You recently joined myGov. Click <a href="http://www.clubbedinapp.com/houseapp/php/confirmemail.php?id='.$secure.'">here</a> to confirm your email address and start using the application! <br><br> From, <br> The myGov Team';
+    $mail->Body    = 'Dear '.$firstname.' '.$lastname.', <br><br>You recently joined myGov. Click <a href="http://www.clubbedinapp.com/houseapp/php/confirmemail.php?id='.$secure.'">here</a> to confirm your email address and start using the application! <br><br> From, <br> The myGov Team';
      
     if(!$mail->send()) {
        exit;
