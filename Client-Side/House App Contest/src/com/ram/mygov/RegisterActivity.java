@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -58,6 +59,8 @@ public class RegisterActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_register);
 
         mUsernameView = ((EditText) findViewById(R.id.suUsername));
@@ -101,8 +104,15 @@ public class RegisterActivity extends Activity {
         return false;
     }
 
-    public void displayInvalidMessage() {
+    public void displayInvalidMessage(String error) {
+
+        if (error.equals(PHPScriptVariables.CONNECTION_FAILED))
+            invalidView.setText("Email Already In Use");
+        else if (error.equals(PHPScriptVariables.CONNECTION_FAILED2))
+            invalidView.setText("Username Already In Use");
+
         invalidView.setVisibility(View.VISIBLE);
+
     }
 
     public void register(int type) {
@@ -208,7 +218,7 @@ public class RegisterActivity extends Activity {
                 if (response != null) {
                     InputStream in = response.getEntity().getContent();
                     userID = JSONParser.convertStreamToString(in,PHPScriptVariables.registerString);
-                    if (!userID.equals(PHPScriptVariables.CONNECTION_FAILED))
+                    if (!userID.equals(PHPScriptVariables.CONNECTION_FAILED) && !userID.equals(PHPScriptVariables.CONNECTION_FAILED2))
                         return true;
                 }
 
@@ -247,8 +257,8 @@ public class RegisterActivity extends Activity {
 
             } else
             {
-                if (userID.equals(PHPScriptVariables.CONNECTION_FAILED))
-                    displayInvalidMessage();
+                if (userID.equals(PHPScriptVariables.CONNECTION_FAILED) || userID.equals(PHPScriptVariables.CONNECTION_FAILED2))
+                    displayInvalidMessage(userID);
 
             }
         }

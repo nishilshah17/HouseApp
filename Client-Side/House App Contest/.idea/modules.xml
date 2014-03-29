@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/House App Contest.iml" filepath="$PROJECT_DIR$/House App Contest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../appcompat_v7/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/../appcompat_v7/android-support-v7-appcompat.iml" />
     </modules>
   </component>
 </project>

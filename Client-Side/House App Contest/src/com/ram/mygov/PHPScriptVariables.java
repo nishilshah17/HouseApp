@@ -3,6 +3,7 @@ package com.ram.mygov;
 public class PHPScriptVariables {
 
     public static final String CONNECTION_FAILED = "false";
+    public static final String CONNECTION_FAILED2 = "false2";
     public static final String CONECTION_UNCONFIRMED = "unconfirmed";
     public static final String userIDString = "userID";
     public static final String registerString = "register";
@@ -16,5 +17,7 @@ public class PHPScriptVariables {
     public static final String postIDString = "postID";
     public static final String postTypeString = "postType";
     public static final String postStampString = "stamp";
+    public static final String commentsString = "comments";
+    public static final String postUsernameString = "username";
 
 }

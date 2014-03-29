@@ -2,13 +2,10 @@ package com.ram.mygov;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,8 +42,13 @@ public class MyGovActivity extends Activity {
     private static final int timeout = 10000;
     private PostTask postTask;
     private RetrievePostTask retrievePostsTask;
+    private RetrieveCommentsTask retrieveCommentsTask;
 
     private ArrayList<Post> posts;
+
+    private Post currentPost;
+
+    private int screenStatus;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -280,15 +282,16 @@ public class MyGovActivity extends Activity {
                     String postID = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postIDString);
                     String postType = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postTypeString);
                     String postStamp = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postStampString);
+                    String postUsername = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postUsernameString);
 
-                    posts.add(new Post(postText,postID,postType,postStamp));
+                    posts.add(new Post(postText,postID,postType,postStamp,postUsername));
 
                 }
 
                 String[] postTexts = new String[posts.size()];
 
                 for (int i = 0; i < posts.size(); i++) {
-                    postTexts[i] = ((Post) posts.get(i)).postText;
+                    postTexts[i] = posts.get(i).postText;
                 }
 
                 ArrayAdapter adapter = new ArrayAdapter(MyGovActivity.this,android.R.layout.simple_list_item_1,postTexts);
@@ -320,13 +323,127 @@ public class MyGovActivity extends Activity {
 
     }
 
+    public class RetrieveCommentsTask extends  AsyncTask<Void, Void, Boolean> {
+
+        private String[] tmpPosts;
+
+        private boolean refresh = false;
+
+        private MenuItem item;
+
+        private int offset;
+
+        private void setRefresh(boolean b, MenuItem item, int offset) {
+            refresh = b;
+            this.item = item;
+            this.offset = offset;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            String path = "http://clubbedinapp.com/houseapp/php/getcomments.php";
+
+            HttpClient client = new DefaultHttpClient();
+            HttpConnectionParams.setConnectionTimeout(client.getParams(), timeout);
+            JSONObject json = new JSONObject();
+
+            HttpResponse response;
+
+            try {
+
+                HttpPost post = new HttpPost(path);
+                json.put(PHPScriptVariables.postIDString,currentPost.postID);
+                post.setHeader("json", json.toString());
+                StringEntity se = new StringEntity(json.toString());
+                se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+                post.setEntity(se);
+                response = client.execute(post);
+
+                if (response != null) {
+                    InputStream in = response.getEntity().getContent();
+                    tmpPosts = JSONParser.convertStreamToArray(in);
+                    return  true;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return false;
+
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success)
+        {
+
+            retrieveCommentsTask = null;
+
+            if (success) {
+
+                posts = new ArrayList<Post>();
+
+                for (int i = 0; i < tmpPosts.length; i++) {
+
+                    String postText = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postString);
+                    String postID = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postIDString);
+                    String postType = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postTypeString);
+                    String postStamp = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postStampString);
+                    String postUsername = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postUsernameString);
+
+                    posts.add(new Post(postText,postID,postType,postStamp,postUsername));
+
+                }
+
+                String[] postTexts = new String[posts.size()];
+
+                for (int i = 0; i < posts.size(); i++) {
+                    postTexts[i] = posts.get(i).postText;
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter(MyGovActivity.this,android.R.layout.simple_list_item_1,postTexts);
+                ListView postList = (ListView) findViewById(R.id.postListView);
+                postList.setAdapter(adapter);
+                postList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        postScreen(posts.get(position));
+                    }
+                });
+
+                if (refresh) {
+
+                    if (item != null)
+                        item.setActionView(null);
+
+                    animatePostsView(true, offset);
+                }
+
+            }
+
+        }
+
+        @Override
+        protected void onCancelled() {
+            retrieveCommentsTask = null;
+        }
+
+    }
+
     public void refresh(int offset) {
 
         refreshItem.setActionView(refreshBar);
 
-        retrievePostsTask = new RetrievePostTask();
-        retrievePostsTask.setRefresh(true,refreshItem,offset);
-        retrievePostsTask.execute((Void) null);
+        if (screenStatus == ScreenStatus.POSTS_SCREEN) {
+            retrievePostsTask = new RetrievePostTask();
+            retrievePostsTask.setRefresh(true, refreshItem, offset);
+            retrievePostsTask.execute((Void) null);
+        } else if (screenStatus == ScreenStatus.COMMENTS_SCREEN) {
+            retrieveCommentsTask = new RetrieveCommentsTask();
+            retrieveCommentsTask.setRefresh(true,refreshItem,offset);
+            retrieveCommentsTask.execute((Void) null);
+        }
 
     }
 
