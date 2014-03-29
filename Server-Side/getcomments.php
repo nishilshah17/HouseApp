@@ -14,7 +14,7 @@ while ($rowComments = mysql_fetch_assoc($result)) {
     
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$userID.'"');
     $rowUser= mysql_fetch_assoc($resultUser);
-	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName']);
+	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName']));
 
 }
 
