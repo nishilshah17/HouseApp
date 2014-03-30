@@ -107,8 +107,8 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="3876">
-              <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2669" max-vertical-offset="3876">
+              <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -126,17 +126,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyGovActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyGovActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/MyGovActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5912863" vertical-offset="5716" max-vertical-offset="7922">
-              <caret line="392" column="126" selection-start-line="392" selection-start-column="126" selection-end-line="392" selection-end-column="126" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4924" max-vertical-offset="6052">
+              <caret line="338" column="30" selection-start-line="338" selection-start-column="30" selection-end-line="338" selection-end-column="30" />
               <folding>
-                <element signature="e#9216#9217#0" expanded="true" />
-                <element signature="e#9264#9265#0" expanded="true" />
-                <element signature="e#12885#12886#0" expanded="true" />
-                <element signature="e#12936#12937#0" expanded="true" />
+                <element signature="e#3525#3526#0" expanded="true" />
+                <element signature="e#3562#3563#0" expanded="true" />
+                <element signature="e#5548#5549#0" expanded="true" />
+                <element signature="e#5587#5588#0" expanded="true" />
+                <element signature="e#8757#9064#0" expanded="true" />
+                <element signature="e#9045#9046#0" expanded="true" />
+                <element signature="e#9341#9342#0" expanded="true" />
+                <element signature="e#9389#9390#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/PostActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6120332" vertical-offset="2000" max-vertical-offset="2771">
+              <caret line="162" column="66" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
+              <folding>
+                <element signature="e#2073#2226#0" expanded="true" />
+                <element signature="e#2211#2212#0" expanded="true" />
+                <element signature="e#5319#5320#0" expanded="true" />
+                <element signature="e#5370#5371#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JSONParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/JSONParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="894" max-vertical-offset="2074">
+              <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -176,7 +205,6 @@
         <option value="$PROJECT_DIR$/res/layout/activity_welcome.xml" />
         <option value="$PROJECT_DIR$/res/drawable-mdpi/buttonshape.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/ram/mygov/JSONParser.java" />
         <option value="$PROJECT_DIR$/res/menu/main_activity_actions.xml" />
         <option value="$PROJECT_DIR$/res/layout/action_progressbar.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
@@ -189,15 +217,17 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/drawable-mdpi/listview_element.xml" />
         <option value="$PROJECT_DIR$/res/drawable-xhdpi/listview_element.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_post.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/src/com/ram/mygov/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/com/ram/mygov/ScreenStatus.java" />
         <option value="$PROJECT_DIR$/src/com/ram/mygov/RegisterActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/ram/mygov/PostActivity.java" />
         <option value="$PROJECT_DIR$/src/com/ram/mygov/Post.java" />
         <option value="$PROJECT_DIR$/src/com/ram/mygov/PHPScriptVariables.java" />
+        <option value="$PROJECT_DIR$/src/com/ram/mygov/JSONParser.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_post.xml" />
+        <option value="$PROJECT_DIR$/src/com/ram/mygov/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/com/ram/mygov/MyGovActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/ram/mygov/PostActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/ram/mygov/Comment.java" />
       </list>
     </option>
   </component>
@@ -527,8 +557,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="880" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="880" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -584,25 +614,19 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4743">
-          <caret line="92" column="50" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/MyGovActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="6647">
           <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
           <folding>
-            <element signature="e#9216#9217#0" expanded="true" />
-            <element signature="e#9264#9265#0" expanded="true" />
-            <element signature="e#12885#12886#0" expanded="true" />
-            <element signature="e#12936#12937#0" expanded="true" />
+            <element signature="e#3525#3526#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#5548#5549#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#8757#9064#0" expanded="true" />
+            <element signature="e#9045#9046#0" expanded="true" />
+            <element signature="e#9341#9342#0" expanded="true" />
+            <element signature="e#9389#9390#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -629,10 +653,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3294" max-vertical-offset="4488">
           <caret line="218" column="133" selection-start-line="218" selection-start-column="133" selection-end-line="218" selection-end-column="133" />
           <folding>
-            <element signature="e#9216#9217#0" expanded="true" />
-            <element signature="e#9264#9265#0" expanded="true" />
-            <element signature="e#12885#12886#0" expanded="true" />
-            <element signature="e#12936#12937#0" expanded="true" />
+            <element signature="e#3525#3526#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#5548#5549#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#8757#9064#0" expanded="true" />
+            <element signature="e#9045#9046#0" expanded="true" />
+            <element signature="e#9341#9342#0" expanded="true" />
+            <element signature="e#9389#9390#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -675,10 +703,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="901">
           <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
-            <element signature="e#9216#9217#0" expanded="true" />
-            <element signature="e#9264#9265#0" expanded="true" />
-            <element signature="e#12885#12886#0" expanded="true" />
-            <element signature="e#12936#12937#0" expanded="true" />
+            <element signature="e#3525#3526#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#5548#5549#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#8757#9064#0" expanded="true" />
+            <element signature="e#9045#9046#0" expanded="true" />
+            <element signature="e#9341#9342#0" expanded="true" />
+            <element signature="e#9389#9390#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -925,25 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_post.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/ScreenStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -966,18 +979,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/PostActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6450939" vertical-offset="14" max-vertical-offset="493">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/JSONParser.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_post.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8879668" vertical-offset="745" max-vertical-offset="1615">
-          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2669" max-vertical-offset="3876">
+          <caret line="203" column="42" selection-start-line="203" selection-start-column="42" selection-end-line="203" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/PHPScriptVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -992,14 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="3876">
-          <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/Post.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5643154" vertical-offset="0" max-vertical-offset="482">
@@ -1008,34 +1035,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/PHPScriptVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/MyGovActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5912863" vertical-offset="5716" max-vertical-offset="7922">
-          <caret line="392" column="126" selection-start-line="392" selection-start-column="126" selection-end-line="392" selection-end-column="126" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4924" max-vertical-offset="6052">
+          <caret line="338" column="30" selection-start-line="338" selection-start-column="30" selection-end-line="338" selection-end-column="30" />
           <folding>
-            <element signature="e#9216#9217#0" expanded="true" />
-            <element signature="e#9264#9265#0" expanded="true" />
-            <element signature="e#12885#12886#0" expanded="true" />
-            <element signature="e#12936#12937#0" expanded="true" />
+            <element signature="e#3525#3526#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#5548#5549#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#8757#9064#0" expanded="true" />
+            <element signature="e#9045#9046#0" expanded="true" />
+            <element signature="e#9341#9342#0" expanded="true" />
+            <element signature="e#9389#9390#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/JSONParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="894" max-vertical-offset="2074">
+          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/ScreenStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3370044" vertical-offset="0" max-vertical-offset="454">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ram/mygov/PostActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6120332" vertical-offset="2000" max-vertical-offset="2771">
+          <caret line="162" column="66" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
+          <folding>
+            <element signature="e#2073#2226#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+            <element signature="e#5319#5320#0" expanded="true" />
+            <element signature="e#5370#5371#0" expanded="true" />
           </folding>
         </state>
       </provider>
