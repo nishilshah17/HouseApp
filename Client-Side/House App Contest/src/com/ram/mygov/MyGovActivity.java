@@ -39,16 +39,12 @@ public class MyGovActivity extends Activity {
     private String postString;
 
     // Internet Connection
-    private static final int timeout = 10000;
+    public static final int timeout = 10000;
     private PostTask postTask;
     private RetrievePostTask retrievePostsTask;
-    private RetrieveCommentsTask retrieveCommentsTask;
 
     private ArrayList<Post> posts;
-
-    private Post currentPost;
-
-    private int screenStatus;
+    private String[] postIDs;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -209,8 +205,7 @@ public class MyGovActivity extends Activity {
         }
 
         @Override
-        protected void onCancelled()
-        {
+        protected void onCancelled() {
             postTask = null;
         }
 
@@ -255,7 +250,7 @@ public class MyGovActivity extends Activity {
                 if (response != null) {
                     InputStream in = response.getEntity().getContent();
                     tmpPosts = JSONParser.convertStreamToArray(in);
-                    return  true;
+                    return true;
                 }
 
             } catch (Exception e) {
@@ -267,8 +262,7 @@ public class MyGovActivity extends Activity {
         }
 
         @Override
-        protected void onPostExecute(final Boolean success)
-        {
+        protected void onPostExecute(final Boolean success) {
 
             retrievePostsTask = null;
 
@@ -278,29 +272,34 @@ public class MyGovActivity extends Activity {
 
                 for (int i = 0; i < tmpPosts.length; i++) {
 
-                    String postText = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postString);
-                    String postID = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postIDString);
-                    String postType = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postTypeString);
-                    String postStamp = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postStampString);
-                    String postUsername = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postUsernameString);
+                    String postText = JSONParser.getVariableFromString(tmpPosts[i], PHPScriptVariables.postString);
+                    String postID = JSONParser.getVariableFromString(tmpPosts[i], PHPScriptVariables.postIDString);
+                    String postType = JSONParser.getVariableFromString(tmpPosts[i], PHPScriptVariables.postTypeString);
+                    String postStamp = JSONParser.getVariableFromString(tmpPosts[i], PHPScriptVariables.postStampString);
+                    String postUsername = JSONParser.getVariableFromString(tmpPosts[i], PHPScriptVariables.postUsernameString);
 
-                    posts.add(new Post(postText,postID,postType,postStamp,postUsername));
+                    posts.add(new Post(postText, postID, postType, postStamp, postUsername));
 
                 }
 
                 String[] postTexts = new String[posts.size()];
-
                 for (int i = 0; i < posts.size(); i++) {
                     postTexts[i] = posts.get(i).postText;
                 }
 
-                ArrayAdapter adapter = new ArrayAdapter(MyGovActivity.this,android.R.layout.simple_list_item_1,postTexts);
+                postIDs = new String[posts.size()];
+                for (int i = 0; i < posts.size(); i++) {
+                    postIDs[i] = posts.get(i).postID;
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter(MyGovActivity.this, android.R.layout.simple_list_item_1, postTexts);
                 ListView postList = (ListView) findViewById(R.id.postListView);
                 postList.setAdapter(adapter);
                 postList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        postScreen(posts.get(position));
+                        refresh(0);
+                        commentsScreen(postIDs[position]);
                     }
                 });
 
@@ -319,114 +318,6 @@ public class MyGovActivity extends Activity {
         @Override
         protected void onCancelled() {
             retrievePostsTask = null;
-        }
-
-    }
-
-    public class RetrieveCommentsTask extends  AsyncTask<Void, Void, Boolean> {
-
-        private String[] tmpPosts;
-
-        private boolean refresh = false;
-
-        private MenuItem item;
-
-        private int offset;
-
-        private void setRefresh(boolean b, MenuItem item, int offset) {
-            refresh = b;
-            this.item = item;
-            this.offset = offset;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-
-            String path = "http://clubbedinapp.com/houseapp/php/getcomments.php";
-
-            HttpClient client = new DefaultHttpClient();
-            HttpConnectionParams.setConnectionTimeout(client.getParams(), timeout);
-            JSONObject json = new JSONObject();
-
-            HttpResponse response;
-
-            try {
-
-                HttpPost post = new HttpPost(path);
-                json.put(PHPScriptVariables.postIDString,currentPost.postID);
-                post.setHeader("json", json.toString());
-                StringEntity se = new StringEntity(json.toString());
-                se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-                post.setEntity(se);
-                response = client.execute(post);
-
-                if (response != null) {
-                    InputStream in = response.getEntity().getContent();
-                    tmpPosts = JSONParser.convertStreamToArray(in);
-                    return  true;
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return false;
-
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success)
-        {
-
-            retrieveCommentsTask = null;
-
-            if (success) {
-
-                posts = new ArrayList<Post>();
-
-                for (int i = 0; i < tmpPosts.length; i++) {
-
-                    String postText = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postString);
-                    String postID = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postIDString);
-                    String postType = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postTypeString);
-                    String postStamp = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postStampString);
-                    String postUsername = JSONParser.getVariableFromString(tmpPosts[i],PHPScriptVariables.postUsernameString);
-
-                    posts.add(new Post(postText,postID,postType,postStamp,postUsername));
-
-                }
-
-                String[] postTexts = new String[posts.size()];
-
-                for (int i = 0; i < posts.size(); i++) {
-                    postTexts[i] = posts.get(i).postText;
-                }
-
-                ArrayAdapter adapter = new ArrayAdapter(MyGovActivity.this,android.R.layout.simple_list_item_1,postTexts);
-                ListView postList = (ListView) findViewById(R.id.postListView);
-                postList.setAdapter(adapter);
-                postList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        postScreen(posts.get(position));
-                    }
-                });
-
-                if (refresh) {
-
-                    if (item != null)
-                        item.setActionView(null);
-
-                    animatePostsView(true, offset);
-                }
-
-            }
-
-        }
-
-        @Override
-        protected void onCancelled() {
-            retrieveCommentsTask = null;
         }
 
     }
@@ -435,28 +326,16 @@ public class MyGovActivity extends Activity {
 
         refreshItem.setActionView(refreshBar);
 
-        if (screenStatus == ScreenStatus.POSTS_SCREEN) {
-            retrievePostsTask = new RetrievePostTask();
-            retrievePostsTask.setRefresh(true, refreshItem, offset);
-            retrievePostsTask.execute((Void) null);
-        } else if (screenStatus == ScreenStatus.COMMENTS_SCREEN) {
-            retrieveCommentsTask = new RetrieveCommentsTask();
-            retrieveCommentsTask.setRefresh(true,refreshItem,offset);
-            retrieveCommentsTask.execute((Void) null);
-        }
+        retrievePostsTask = new RetrievePostTask();
+        retrievePostsTask.setRefresh(true, refreshItem, offset);
+        retrievePostsTask.execute((Void) null);
 
     }
 
-    public void postScreen(Post post) {
-
-        String[] postValues = new String[4];
-        postValues[0] = post.postText;
-        postValues[1] = post.postID;
-        postValues[2] = post.postType;
-        postValues[3] = post.postStamp;
+    public void commentsScreen(String postID) {
 
         Intent intent = new Intent(MyGovActivity.this,PostActivity.class);
-        intent.putExtra("Post",postValues);
+        intent.putExtra("PostID",postID);
         startActivity(intent);
 
     }

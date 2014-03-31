@@ -95,4 +95,31 @@ public class JSONParser {
 
     }
 
+    public static String[] convertStringToArray(String s) {
+
+        JSONArray mJsonArray = null;
+
+        String[] data = null;
+
+        try {
+
+            mJsonArray = new JSONArray(s);
+
+            if (mJsonArray == null)
+                return null;
+
+            data = new String[mJsonArray.length()];
+
+            for (int i = 0; i < mJsonArray.length(); i++) {
+                data[i] = mJsonArray.getJSONObject(i).toString();
+            }
+
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+
+    }
+
 }
