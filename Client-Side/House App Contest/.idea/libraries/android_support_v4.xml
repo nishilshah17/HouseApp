@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="json_simple">
+  <library name="android-support-v4">
     <CLASSES>
-      <root url="jar://C:/json_simple/lib/json_simple.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

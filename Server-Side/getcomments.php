@@ -15,7 +15,7 @@ $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$userID.'"');
 $rowUser = mysql_fetch_assoc($resultUser);
 $username = $rowUser['userName'];
 
-array_push($comments, array("comment" => $rowPost['post'], "username" => $username));
+array_push($comments, array("comment" => $rowPost['post'], "username" => $username, "stamp" => $rowPost['stamp']));
 
 $resultComments = mysql_query('SELECT * FROM comments WHERE postID = "'.$postID.'"');
 
@@ -24,7 +24,7 @@ while ($rowComments = mysql_fetch_assoc($resultComments)) {
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$rowComments['userID'].'"');
     $rowUser= mysql_fetch_assoc($resultUser);
     
-	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName']));
+	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName'], "stamp" => $rowPost['stamp']));
 
 }
 
