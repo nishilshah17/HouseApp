@@ -7,101 +7,112 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/suusernameView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false" android:layout_marginLeft="50dp" android:layout_marginTop="50dp"
-            android:text="@string/Username" android:textSize="30sp"/>
+            android:id="@+id/suusernameView"
+            android:text="@string/Username" android:textSize="30sp"
+            android:layout_below="@+id/invalidAccountView" android:layout_alignLeft="@+id/suEmailView"
+            android:layout_alignStart="@+id/suEmailView" android:layout_marginTop="40dp"/>
     <EditText
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/suUsername" android:layout_below="@+id/suusernameView"
-            android:layout_alignLeft="@+id/suusernameView" android:layout_alignStart="@+id/suusernameView"/>
+            android:ems="10"
+            android:id="@+id/suUsername"
+            android:layout_below="@+id/suusernameView" android:layout_centerHorizontal="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Email"
-            android:id="@+id/suEmailView" android:layout_below="@+id/suUsername" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:textSize="30sp"/>
+            android:id="@+id/suEmailView"
+            android:textSize="30sp" android:layout_below="@+id/suUsername" android:layout_alignLeft="@+id/suEmail"
+            android:layout_alignStart="@+id/suEmail"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/suEmail" android:layout_below="@+id/suEmailView" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:layout_alignRight="@+id/suUsername"
-            android:layout_alignEnd="@+id/suUsername"/>
+            android:id="@+id/suEmail"
+            android:layout_below="@+id/suEmailView" android:layout_centerHorizontal="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/FirstName"
-            android:id="@+id/suFNameView" android:layout_below="@+id/suEmail" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:textIsSelectable="false" android:textSize="30sp"/>
+            android:id="@+id/suFNameView"
+            android:textIsSelectable="false" android:textSize="30sp" android:layout_below="@+id/suEmail"
+            android:layout_alignLeft="@+id/suLNameView" android:layout_alignStart="@+id/suLNameView"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/suFName" android:layout_below="@+id/suFNameView"
-            android:layout_alignLeft="@+id/suFNameView" android:layout_alignStart="@+id/suFNameView"
-            android:layout_alignRight="@+id/suEmail" android:layout_alignEnd="@+id/suEmail"/>
+            android:ems="10"
+            android:id="@+id/suFName"
+            android:layout_below="@+id/suFNameView" android:layout_centerHorizontal="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/LastName"
-            android:id="@+id/suLNameView" android:layout_below="@+id/suFName" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:textSize="30sp"/>
+            android:id="@+id/suLNameView"
+            android:textSize="30sp" android:layout_below="@+id/suFName" android:layout_alignLeft="@+id/suPasswordView"
+            android:layout_alignStart="@+id/suPasswordView"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/suLName" android:layout_below="@+id/suLNameView"
-            android:layout_alignLeft="@+id/suusernameView" android:layout_alignStart="@+id/suusernameView"
-            android:layout_alignRight="@+id/suFName" android:layout_alignEnd="@+id/suFName"/>
+            android:ems="10"
+            android:id="@+id/suLName"
+            android:layout_below="@+id/suLNameView" android:layout_centerHorizontal="true"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Password"
-            android:id="@+id/suPasswordView" android:layout_below="@+id/suLName" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:textSize="30sp"/>
-    <Button
+            android:id="@+id/suPasswordView"
+            android:textSize="30sp" android:layout_below="@+id/suLName" android:layout_alignLeft="@+id/suPassword"
+            android:layout_alignStart="@+id/suPassword"/>
+
+     <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Constituent"
-            android:id="@+id/suConstRegister"
-            android:layout_alignBottom="@+id/suEmail" android:layout_toRightOf="@+id/suEmail"
-            android:layout_marginLeft="30dp" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/GovOfficial"
-            android:id="@+id/suGovRegister" android:layout_alignBottom="@+id/suFName"
-            android:layout_alignLeft="@+id/suConstRegister" android:layout_alignStart="@+id/suConstRegister"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/SignUpAs"
-            android:id="@+id/suView"
-            android:layout_alignBaseline="@+id/suusernameView" android:layout_alignBottom="@+id/suusernameView"
-            android:layout_alignLeft="@+id/suConstRegister" android:layout_alignStart="@+id/suConstRegister"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:textSize="30sp"/>
-    <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/registerBar" android:layout_alignBottom="@+id/suLName"
-            android:layout_alignLeft="@+id/suGovRegister" android:layout_alignStart="@+id/suGovRegister"
-            android:layout_marginLeft="85dp"/>
+            android:id="@+id/registerBar"
+            android:layout_below="@+id/toggleText"
+            android:layout_centerHorizontal="true"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Emailused"
             android:id="@+id/invalidAccountView"
-            android:textSize="15sp" android:layout_above="@+id/suView" android:layout_alignLeft="@+id/suusernameView"
-            android:layout_alignStart="@+id/suusernameView" android:textColor="#f05840"
-            android:layout_marginBottom="10dp"/>
+            android:textSize="15sp"
+            android:textColor="#f05840"
+            android:layout_marginTop="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/suusernameView"
+            android:layout_alignStart="@+id/suusernameView"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/suPassword" android:layout_below="@+id/suPasswordView"
-            android:layout_alignLeft="@+id/suusernameView" android:layout_alignStart="@+id/suusernameView"
-            android:layout_alignRight="@+id/suFName" android:layout_alignEnd="@+id/suFName"/>
+            android:id="@+id/suPassword"
+            android:layout_below="@+id/suPasswordView"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap the button to toggle between Constituent and Official"
+            android:id="@+id/toggleText"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="#f05840"
+            android:layout_below="@+id/suPassword"
+            android:layout_centerHorizontal="true"/>
+
+    <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/constituentToggle"
+            android:background="@drawable/toggle_button_color_selector"
+            android:textOn=" Gov Official "
+            android:textOff=" Constituent "
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/registerBar"
+            android:layout_alignRight="@+id/suLNameView"
+            android:layout_alignEnd="@+id/suLNameView"
+            android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
