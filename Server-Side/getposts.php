@@ -20,11 +20,11 @@ while ($row = mysql_fetch_assoc($result)) {
 
 }
 
-/*$tmp = Array();
-foreach($members as &$ma)
-    $tmp[] = &$ma["name"];
-$tmp = array_map('strtolower', $tmp);
-array_multisort($tmp, $members);*/
+usort($posts, function($item1, $item2) {
+    $ts1 = strtotime($item1['stamp']);
+    $ts2 = strtotime($item2['stamp']);
+    return $ts2 - $ts1;
+});
 
 echo json_encode($posts);
 
