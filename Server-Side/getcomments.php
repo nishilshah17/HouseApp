@@ -24,9 +24,15 @@ while ($rowComments = mysql_fetch_assoc($resultComments)) {
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$rowComments['userID'].'"');
     $rowUser= mysql_fetch_assoc($resultUser);
     
-	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName'], "stamp" => $rowPost['stamp']));
+	array_push($comments, array("comment" => $rowComments['comment'], "username" => $rowUser['userName'], "stamp" => $rowComments['stamp']));
 
 }
+
+usort($comments, function($item1, $item2) {
+    $ts1 = strtotime($item1['stamp']);
+    $ts2 = strtotime($item2['stamp']);
+    return $ts1 - $ts2;
+});
 
 echo json_encode($comments);
 
