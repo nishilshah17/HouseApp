@@ -43,6 +43,7 @@ public class MyGovActivity extends Activity {
     public static final int timeout = 10000;
     private PostTask postTask;
     private RetrievePostTask retrievePostsTask;
+    private VoteTask voteTask;
 
     private ArrayList<Post> posts;
     private String[] postIDs;
@@ -325,6 +326,64 @@ public class MyGovActivity extends Activity {
         }
 
     }
+    
+    public class VoteTask extends AsyncTask<Void, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Void... params)
+        {
+            if(voteType = 1){
+                String path = "http://clubbedinapp.com/houseapp/php/upvote.php";
+            } else if (voteType = 0) {
+                String path = "http://clubbedinapp.com/houseapp/php/downvote.php";
+            }
+
+            HttpClient client = new DefaultHttpClient();
+            HttpConnectionParams.setConnectionTimeout(client.getParams(), timeout);
+            JSONObject json = new JSONObject();
+
+            try {
+                HttpPost post = new HttpPost(path);
+                json.put(PHPScriptVariables.userIDString,userID);
+                json.put(PHPScriptVariables.postIDString,postID);
+                post.setHeader("json", json.toString());
+                StringEntity se = new StringEntity(json.toString());
+                se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+                post.setEntity(se);
+                client.execute(post);
+
+                return true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return false;
+
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success)
+        {
+            voteTask = null;
+
+            if (success) {
+
+                refresh(0);
+
+            } else {
+                // Error Occured
+            }
+
+        }
+
+        @Override
+        protected void onCancelled() {
+            voteTask = null;
+        }
+
+    }
+
 
     public void refresh(int offset) {
 

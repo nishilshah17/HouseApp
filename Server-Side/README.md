@@ -33,7 +33,11 @@ OUTPUT: array of (question, stamp, username, polloptions: (option, votes))
 
 INPUT: userID
 
-OUTPUT: post, postID, postType, stamp, up, down, username
+OUTPUT: post, postID, postType, stamp, up, down, username, userVote
+
+    if(userVote == "up"){it means that the user has voted up for that post};
+    if(userVote == "down"){it means that the user has voted down for that post};
+    if(userVote == "none"){it means that the user has not voted for that post};
 
 **getusertype.php**
 
