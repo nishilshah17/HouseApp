@@ -13,6 +13,12 @@ INPUT: userID, postID
 
 OUTPUT:
 
+**forgotpassword.php**
+
+INPUT: forgotemail
+
+OUTPUT: 
+
 **getcomments.php**
 
 INPUT: postID
