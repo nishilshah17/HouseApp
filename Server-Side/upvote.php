@@ -5,6 +5,7 @@ include 'getdata.php';
 
 $userID = $json->{'userID'};
 $postID = $json->{'postID'};
+
 $vote = 1;
 
 $result = mysql_query('SELECT * FROM uservote WHERE userID = "'.$userID.'" AND postID = "'.$postID.'"');

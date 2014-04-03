@@ -4,9 +4,8 @@ include 'mysqlconnect.php';
 include 'getdata.php';
 
 $userID = $json->{'userID'};
-$userID = 497574237;
 $postID = $json->{'postID'};
-$postID = 2;
+
 $vote = 0;
 
 $result = mysql_query('SELECT * FROM uservote WHERE userID = "'.$userID.'" AND postID = "'.$postID.'"');
@@ -15,7 +14,7 @@ $row = mysql_fetch_assoc($result);
 if(mysql_num_rows($result) == 0)
 {
     mysql_query('INSERT INTO uservote (userID, postID, vote) VALUES ("'.$userID.'", "'.$postID.'","'.$vote.'")');
-    mysql_query('INSERT INTO down = down + 1 WHERE postID = "'.$postID.'"');
+    mysql_query('UPDATE posts SET down = down + 1 WHERE postID = "'.$postID.'"');
 } else {
     $currentvote = $row['vote'];
  
