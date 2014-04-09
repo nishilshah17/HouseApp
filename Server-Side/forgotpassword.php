@@ -9,11 +9,11 @@ include 'class.pop3.php';
 include 'class.smtp.php';
 
 $email = $json->{'forgotemail'};
-$email = 'ramsai.vellanki@gmail.com';
 
 $result = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
 $row = mysql_fetch_assoc($result);
 
+if(mysql_num_rows($result) > 0) {
 $secure = rand(100,999).base64_encode($row['userID']);
 
 //SEND FORGOT PASSWORD EMAIL
@@ -40,9 +40,6 @@ $secure = rand(100,999).base64_encode($row['userID']);
        exit;
     }
 
-
-
-
-
+}
 
 ?>

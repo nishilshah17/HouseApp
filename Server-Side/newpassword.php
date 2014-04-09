@@ -67,11 +67,11 @@
         
                 echo "Your password has been reset. You can now log in and use MyGov!";
             } else {
-                echo "<font color='red'>Your password must be at least 6 characters.</font>";
+                echo "<font color='white'>Your password must be at least 6 characters.</font>";
             }
 
         } else {
-            echo "<font color='red'>Your passwords do not match.</font>";   
+            echo "<font color='white'>Your passwords do not match.</font>";   
         }
     }
 ?>
