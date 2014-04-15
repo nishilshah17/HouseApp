@@ -87,7 +87,7 @@ not complete
 
 **newpoll.php**
 
-INPUT: pollquestion, userID
+INPUT: pollquestion, userID, option1, option2, option3, option4
 
 OUTPUT:
 
