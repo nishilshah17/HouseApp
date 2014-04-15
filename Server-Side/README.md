@@ -51,13 +51,16 @@ not complete
 
 INPUT: userID
 
-OUTPUT: array of (question, stamp, username, polloptions: (option, votes))
+OUTPUT: array of (question, stamp, username, userVote, polloptions: (option, votes))
+
+    if(userVote == 0){user did not vote for this poll};
+    else if(userVote == "down"){user voted for this poll option};
 
 **getposts.php**
 
 INPUT: userID
 
-OUTPUT: post, postID, postType, stamp, up, down, username, userVote
+OUTPUT: array of (post, postID, postType, stamp, up, down, username, userVote)
 
     if(userVote == "up"){it means that the user has voted up for that post};
     if(userVote == "down"){it means that the user has voted down for that post};

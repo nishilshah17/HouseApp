@@ -27,7 +27,17 @@ while ($row = mysql_fetch_assoc($result)){
         
     }
     
-    array_push($polls, array("question" => $row['question'], "stamp" => $row['stamp'], "username" => $rowUser['userName'], "polloptions" => $options));
+    $resultUserVote = mysql_query('SELECT * FROM userpollvote WHERE pollID = "'.$pollID.'" AND userID = "'.$userID.'"');
+    
+    if(mysql_num_rows($resultUserVote) > 0){
+        $rowUserVote = mysql_fetch_assoc($resultUserVote);
+        $uservote = $rowUserVote['optionID'];
+    } else {
+        $uservote = 0;   
+    }
+    
+        
+    array_push($polls, array("pollID" => $pollID, "question" => $row['question'], "stamp" => $row['stamp'], "username" => $rowUser['userName'], "uservote" => $uservote, "polloptions" => $options));
     
 }
 
