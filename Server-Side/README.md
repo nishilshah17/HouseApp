@@ -107,6 +107,14 @@ OUTPUT: register
 
 INPUT: eventName, location, time, date, info
 
+OUTPUT: 
+
+**pollvote.php**
+
+INPUT: optionID, pollID, userID
+
+OUTPUT: 
+
 **upvote.php**
 
 INPUT: userID, postID

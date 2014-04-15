@@ -31,7 +31,5 @@ while ($row = mysql_fetch_assoc($result)){
     
 }
 
-$polls = json_encode($polls);
-echo json_pretty($polls, true);
-
+echo json_encode($polls);
 ?>
