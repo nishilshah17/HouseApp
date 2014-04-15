@@ -45,7 +45,9 @@ OUTPUT: array of (comment, username, stamp)
 
 **getevents.php**
 
-not complete
+INPUT:
+
+OUTPUT: array of (eventName, info, location, date, time)
 
 **getpolls.php**
 
