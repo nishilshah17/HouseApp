@@ -18,10 +18,8 @@ while (!$rand)
     
 	$result = mysql_query('SELECT * FROM polls WHERE pollID = "'.$pollID.'"');
 	if(mysql_num_rows($result) == 0) {
-        echo "true";
 		 $rand = TRUE;
 	} else {
-        echo "false";
 	}
 
 }
