@@ -13,6 +13,24 @@ INPUT: userID, postID
 
 OUTPUT:
 
+**deletepost.php**
+
+INPUT: postID
+
+OUTPUT:
+
+**deletepoll.phpp**
+
+INPUT: pollID
+
+OUTPUT:
+
+**deleteevent.php**
+
+INPUT: eventID
+
+OUTPUT:
+
 **forgotpassword.php**
 
 INPUT: forgotemail
