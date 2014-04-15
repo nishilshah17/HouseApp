@@ -103,6 +103,10 @@ INPUT: suemail, supassword, sufirstname, sulastname, suusername, sutype
 
 OUTPUT: register
 
+**newevent.php**
+
+INPUT: eventName, location, time, date, info
+
 **upvote.php**
 
 INPUT: userID, postID
