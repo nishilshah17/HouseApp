@@ -16,7 +16,7 @@ while ($row = mysql_fetch_assoc($result)){
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$row['userID'].'"');
 
     $rowUser = mysql_fetch_assoc($resultUser);
-
+        
     $options = array();
     
     $resultOptions = mysql_query('SELECT * FROM options WHERE pollID = "'.$pollID.'"');
