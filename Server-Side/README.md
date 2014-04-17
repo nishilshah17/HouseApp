@@ -53,7 +53,7 @@ OUTPUT: array of (eventName, info, location, date, time)
 
 INPUT: userID
 
-OUTPUT: array of (question, stamp, username, userVote, polloptions: (option, votes))
+OUTPUT: array of (question, stamp, username, userVote, polloptions: (option, optionID, votes))
 
     if(userVote == 0){user did not vote for this poll};
     else if(userVote == "down"){user voted for this poll option};

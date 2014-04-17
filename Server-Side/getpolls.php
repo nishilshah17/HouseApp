@@ -23,7 +23,7 @@ while ($row = mysql_fetch_assoc($result)){
     
     while ($rowOptions = mysql_fetch_assoc($resultOptions)) {
         
-        array_push($options, array("option" => $rowOptions['option'], "votes" => $rowOptions['votes']));
+        array_push($options, array("option" => $rowOptions['option'], "optionID" => $rowOptions['optionID'], "votes" => $rowOptions['votes']));
         
     }
     

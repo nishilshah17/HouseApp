@@ -30,7 +30,7 @@ while ($row = mysql_fetch_assoc($result)) {
         $userVote = "none";
     }
     
-	array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "postType" => $row['approved'], "stamp" => $row['stamp'], "up" => $row['up'], "down" => $row['down'], "username" => $username, "userVote" => $userVote));
+	array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "stamp" => $row['stamp'], "up" => $row['up'], "down" => $row['down'], "username" => $username, "userVote" => $userVote));
 
 }
 
