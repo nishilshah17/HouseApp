@@ -74,12 +74,6 @@ INPUT: userID
 
 OUTPUT: type
 
-**increaseoption.php**
-
-INPUT: pollID, optionID, userID
-
-OUTPUT: 
-
 **newcomment.php**
 
 INPUT: comment, postID, userID
