@@ -29,9 +29,7 @@ while (!$rand)
 mysql_query('INSERT INTO polls (question, userID, pollID) VALUES ("'.$question.'", "'.$userID.'", "'.$pollID.'")');
 
 if(!empty($option1)){
-    $query = 'INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option1.'","'.$pollID.'", "'.$votes.'")';
-    mysql_query($query);
-
+    mysql_query('INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option1.'","'.$pollID.'", "'.$votes.'")');
 }
 
 if(!empty($option2)){
