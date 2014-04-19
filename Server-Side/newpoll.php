@@ -10,6 +10,8 @@ $option2 = $json->{'option2'};
 $option3 = $json->{'option3'};
 $option4 = $json->{'option4'};
 
+$votes = 0;
+
 $rand = FALSE;
 
 while (!$rand)
@@ -27,19 +29,21 @@ while (!$rand)
 mysql_query('INSERT INTO polls (question, userID, pollID) VALUES ("'.$question.'", "'.$userID.'", "'.$pollID.'")');
 
 if(!empty($option1)){
-    mysql_query('INSERT INTO options (option, pollID) VALUES ("'.$option1.'", "'.$pollID.'")');
+    $query = 'INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option1.'","'.$pollID.'", "'.$votes.'")';
+    mysql_query($query);
+
 }
 
 if(!empty($option2)){
-    mysql_query('INSERT INTO options (option, pollID) VALUES ("'.$option2.'", "'.$pollID.'")');
+    mysql_query('INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option2.'", "'.$pollID.'", "'.$votes.'")');
 }
 
 if(!empty($option3)){
-    mysql_query('INSERT INTO options (option, pollID) VALUES ("'.$option3.'", "'.$pollID.'")');
+    mysql_query('INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option3.'", "'.$pollID.'", "'.$votes.'")');
 }
 
 if(!empty($option4)){
-    mysql_query('INSERT INTO options (option, pollID) VALUES ("'.$option4.'", "'.$pollID.'")');
+    mysql_query('INSERT INTO options (optionName, pollID, votes) VALUES ("'.$option4.'", "'.$pollID.'", "'.$votes.'")');
 }
 
 ?>
