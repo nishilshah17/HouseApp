@@ -5,7 +5,6 @@ include 'getdata.php';
 
 $optionID = $json->{'optionID'};
 $userID = $json->{'userID'};
-$pollID = $json->{'pollID'};
 
 $result = mysql_query('SELECT * FROM options WHERE optionID = "'.$optionID.'"');
 $row = mysql_fetch_assoc($result);

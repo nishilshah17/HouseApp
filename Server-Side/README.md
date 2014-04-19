@@ -86,10 +86,6 @@ INPUT: comment, postID, userID
 
 OUTPUT:
 
-**newevent.php**
-
-not complete
-
 **newpoll.php**
 
 INPUT: pollquestion, userID, option1, option2, option3, option4
@@ -116,7 +112,7 @@ OUTPUT:
 
 **pollvote.php**
 
-INPUT: optionID, pollID, userID
+INPUT: optionID, userID
 
 OUTPUT: 
 
