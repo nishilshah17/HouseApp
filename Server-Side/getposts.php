@@ -12,6 +12,7 @@ $posts = array();
 while ($row = mysql_fetch_assoc($result)) {
     
     $posterID = $row['userID'];
+    
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$posterID.'"');
     $rowUser = mysql_fetch_assoc($resultUser);
     $username = $rowUser['userName'];

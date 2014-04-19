@@ -1,12 +1,6 @@
 README HouseApp
 ===============
 
-**approvepost.php**
-
-INPUT: postID
-
-OUTPUT:
-
 **downvote.php**
 
 INPUT: userID, postID
