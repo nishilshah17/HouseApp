@@ -7,7 +7,7 @@ $eventName = $json->{'eventName'};
 $location = $json->{'location'};
 $time = $json->{'time'};
 $date = $json->{'date'};
-$info = $json->{'info'}
+$info = $json->{'info'};
 
 $rand = FALSE;
 
