@@ -16,7 +16,7 @@ $events = array();
 while($row = mysql_fetch_assoc($result)){
     
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$row['userID'].'"');
-    $rowUser = mysql_fetch_assoc($eventUser);
+    $rowUser = mysql_fetch_assoc($resultUser);
     
     $eventState = $rowUser['state'];
     
