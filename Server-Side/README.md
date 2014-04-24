@@ -39,7 +39,7 @@ OUTPUT: array of (comment, username, stamp)
 
 **getevents.php**
 
-INPUT:
+INPUT: userID
 
 OUTPUT: array of (eventName, info, location, date, time)
 
@@ -94,7 +94,7 @@ OUTPUT: register
 
 **newevent.php**
 
-INPUT: eventName, location, time, date, info
+INPUT: eventName, location, time, date, info, userID
 
 OUTPUT: 
 
