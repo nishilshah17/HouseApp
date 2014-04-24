@@ -8,6 +8,7 @@ $location = $json->{'location'};
 $time = $json->{'time'};
 $date = $json->{'date'};
 $info = $json->{'info'};
+$userID = $json->{'userID'};
 
 $rand = FALSE;
 
@@ -23,6 +24,6 @@ while (!$rand)
 
 }
 
-mysql_query('INSERT INTO events (event, location, time, date, info) VALUES ("'.$eventName.'", "'.$location.'", "'.$time.'", "'.$date.'","'.$info.'")');
+mysql_query('INSERT INTO events (event, location, time, date, info, eventID) VALUES ("'.$eventName.'", "'.$location.'", "'.$time.'", "'.$date.'","'.$info.'", "'.$eventID.'")');
 
 ?>

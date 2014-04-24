@@ -50,7 +50,7 @@ INPUT: userID
 OUTPUT: array of (question, stamp, username, userVote, polloptions: (option, optionID, votes))
 
     if(userVote == 0){user did not vote for this poll};
-    else if(userVote == "down"){user voted for this poll option};
+    else if(userVote <> 0){user voted for this poll option};
 
 **getposts.php**
 

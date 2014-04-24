@@ -6,6 +6,10 @@ include 'prettyprint.php';
 
 $userID = $json->{'userID'};
 
+$resultState = mysql_query('SELECT * FROM users WHERE userID = "'.$userID.'"');
+$rowState = mysql_fetch_assoc($resultState);
+$userState = $rowState['state'];
+
 $polls = array();
 
 $result = mysql_query('SELECT * FROM polls');
@@ -13,9 +17,11 @@ $result = mysql_query('SELECT * FROM polls');
 while ($row = mysql_fetch_assoc($result)){
     
     $pollID = $row['pollID'];
+   
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$row['userID'].'"');
-
     $rowUser = mysql_fetch_assoc($resultUser);
+    
+    $pollState = $rowUser['state'];
         
     $options = array();
     
@@ -36,8 +42,8 @@ while ($row = mysql_fetch_assoc($result)){
         $uservote = 0;   
     }
     
-        
-    array_push($polls, array("pollID" => $pollID, "question" => $row['question'], "stamp" => $row['stamp'], "username" => $rowUser['userName'], "uservote" => $uservote, "polloptions" => $options));
+    if($pollState == $userState)
+        array_push($polls, array("pollID" => $pollID, "question" => $row['question'], "stamp" => $row['stamp'], "username" => $rowUser['userName'], "userVote" => $uservote, "polloptions" => $options));
     
 }
 

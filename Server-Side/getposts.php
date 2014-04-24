@@ -5,6 +5,10 @@ include 'getdata.php';
 
 $userID = $json->{'userID'};
 
+$resultState = mysql_query('SELECT * FROM users WHERE userID = "'.$userID.'"');
+$rowState = mysql_fetch_assoc($resultState);
+$userState = $rowState['state'];
+
 $result = mysql_query('SELECT * FROM posts');
 
 $posts = array();
@@ -15,6 +19,8 @@ while ($row = mysql_fetch_assoc($result)) {
     
     $resultUser = mysql_query('SELECT * FROM users WHERE userID = "'.$posterID.'"');
     $rowUser = mysql_fetch_assoc($resultUser);
+    $posterState = $rowUser['state'];
+    
     $username = $rowUser['userName'];
     
     $resultVote = mysql_query('SELECT * FROM uservote WHERE userID = "'.$userID.'" AND postID = "'.$row['postID'].'"');
@@ -30,8 +36,8 @@ while ($row = mysql_fetch_assoc($result)) {
     } else {
         $userVote = "none";
     }
-    
-	array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "stamp" => $row['stamp'], "up" => $row['up'], "down" => $row['down'], "username" => $username, "userVote" => $userVote));
+    if($posterState == $userState)
+	   array_push($posts, array("post" => $row['post'], "postID" => $row['postID'], "stamp" => $row['stamp'], "up" => $row['up'], "down" => $row['down'], "username" => $username, "userVote" => $userVote));
 
 }
 

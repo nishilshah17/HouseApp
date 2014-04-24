@@ -8,14 +8,14 @@ include 'class.phpmailer.php';
 include 'class.pop3.php';
 include 'class.smtp.php';
 
-$data = file_get_contents('php://input');
-$json = json_decode($data);
 $email = $json->{'suemail'};
 $password = $json->{'supassword'};
 $firstname = $json->{'sufirstname'};
 $lastname = $json->{'sulastname'};
 $username = $json->{'suusername'};
 $type = $json->{'sutype'};
+$state = $json->{'state'};
+
 $confirmed = 0;
 
 $rand = FALSE;
@@ -40,13 +40,12 @@ if(mysql_num_rows($resultemail) > 0){
 } else if (mysql_num_rows($resultusername) > 0){
     $register = "false2";
 } else {
-    mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username, type, confirmed) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'", "'.$type.'", "'.$confirmed.'")');
+    mysql_query('INSERT INTO users (userID, firstname, lastname, email, hash, username, type, confirmed, state) VALUES ("'.$userID.'", "'.$firstname.'","'.$lastname.'", "'.$email.'", "'.$password.'", "'.$username.'", "'.$type.'", "'.$confirmed.'", "'.$state.'")');
     $register = "true";
 }
 echo json_encode(array('register' => $register));
 
 $secure = rand(100,999).base64_encode($userID);
-
 
 //SEND CONFIRMATION EMAIL
 if($register != "false"){
