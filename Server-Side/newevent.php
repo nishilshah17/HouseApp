@@ -24,6 +24,6 @@ while (!$rand)
 
 }
 
-mysql_query('INSERT INTO events (event, location, time, date, info, eventID) VALUES ("'.$eventName.'", "'.$location.'", "'.$time.'", "'.$date.'","'.$info.'", "'.$eventID.'")');
+mysql_query('INSERT INTO events (event, location, time, date, info, eventID, userID) VALUES ("'.$eventName.'", "'.$location.'", "'.$time.'", "'.$date.'","'.$info.'", "'.$eventID.'", "'.$userID.'")');
 
 ?>
